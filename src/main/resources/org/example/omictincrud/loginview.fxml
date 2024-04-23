@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.omictincrud.HelloController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="685.0">
+         <children>
+            <Label layoutX="269.0" layoutY="132.0" text="Username">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" layoutX="392.0" layoutY="137.0" />
+            <TextField fx:id="password" layoutX="392.0" layoutY="186.0" />
+            <Label layoutX="268.0" layoutY="180.0" text="Password">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnOpenLogin" layoutX="399.0" layoutY="247.0" mnemonicParsing="false" onAction="#loginValidation" prefHeight="25.0" prefWidth="68.0" text="Login" />
+            <Button fx:id="btnOpenRegister" layoutX="481.0" layoutY="247.0" mnemonicParsing="false" onAction="#openRegister" text="Register" />
+            <Label layoutX="415.0" layoutY="76.0" text="WELCOME">
+               <font>
+                  <Font size="22.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

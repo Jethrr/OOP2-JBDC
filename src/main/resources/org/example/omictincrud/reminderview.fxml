@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.omictincrud.Reminderview">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="680.0">
+         <children>
+            <Label layoutX="54.0" layoutY="33.0" text="REMINDERS" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfReminder" layoutX="54.0" layoutY="80.0" onAction="#insertReminder" prefHeight="25.0" prefWidth="500.0" />
+            <Button fx:id="btnAddRen" layoutX="562.0" layoutY="80.0" mnemonicParsing="false" onAction="#insertReminder" prefHeight="25.0" prefWidth="71.0" text="ADD" />
+            <Button fx:id="btnReturnMain" layoutX="633.0" layoutY="20.0" mnemonicParsing="false" onAction="#ReturnMain" text="X" />
+            <TableView fx:id="reminderTabe" layoutX="54.0" layoutY="126.0" prefHeight="232.0" prefWidth="580.0">
+              <columns>
+                <TableColumn fx:id="reminderIdCol" prefWidth="75.0" text="#" />
+                <TableColumn fx:id="reminderCol" prefWidth="385.0000305175781" text="REMINDER" />
+                  <TableColumn fx:id="opCol" prefWidth="117.6666259765625" text="op" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
