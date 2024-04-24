@@ -33,8 +33,8 @@ public class Registerview {
     }
 
     public void submitReg(ActionEvent event) {
-         String user = username.getText();
-         String pword = password.getText();
+        String user = username.getText();
+        String pword = password.getText();
 
         if (user.isEmpty() || pword.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -45,31 +45,47 @@ public class Registerview {
             return;
         }
 
-        try (Connection c = MySQLConnection.getConnection();
-             PreparedStatement statement = c.prepareStatement("INSERT INTO  users(username,password) VALUES (?,?)")) {
+        try (Connection c = MySQLConnection.getConnection()) {
+
+            c.setAutoCommit(false);
+
+            try (PreparedStatement insertStatement = c.prepareStatement("INSERT INTO users(username, password) VALUES (?, ?)")) {
+                insertStatement.setString(1, user);
+                insertStatement.setString(2, pword);
 
 
-            statement.setString(1, user);
-            statement.setString(2, pword);
-
-            int row = statement.executeUpdate();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Registered Succesfully. You can now sign in");
-
-            Optional<ButtonType> result = alert.showAndWait();
-
-//            messagebox.setText("Register Succesfully");
+                insertStatement.addBatch();
 
 
+                int[] updateCounts = insertStatement.executeBatch();
+
+
+                for (int updateCount : updateCounts) {
+                    if (updateCount != 1) {
+                        throw new SQLException("Failed to insert user.");
+                    }
+                }
+
+                c.commit();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText(null);
+                alert.setContentText("Registered Successfully. You can now sign in.");
+                alert.showAndWait();
+            } catch (SQLException e) {
+
+                c.rollback();
+                throw e;
+            } finally {
+
+                c.setAutoCommit(true);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
+
 
 
 

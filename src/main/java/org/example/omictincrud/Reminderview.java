@@ -44,6 +44,8 @@ public class Reminderview {
         Label emptyLabel = new Label("No reminders.");
         reminderTabe.setPlaceholder(emptyLabel);
 
+
+
         reminderIdCol.setCellValueFactory(data ->
                 Bindings.createObjectBinding(() -> (Integer)data.getValue().get(0), data.getValue()));
         reminderCol.setCellValueFactory(data ->
