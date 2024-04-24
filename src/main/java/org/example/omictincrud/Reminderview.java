@@ -37,13 +37,15 @@ public class Reminderview {
     public Button btnAddRen;
     public TableColumn<ObservableList<Object>, Object>  dateCol;
     public DatePicker dateP;
+    public Button openSettings;
+    public Label rem;
 
 
     public void initialize() {
 
         Label emptyLabel = new Label("No reminders.");
         reminderTabe.setPlaceholder(emptyLabel);
-
+        rem.setText("Hi! " + getUserUsername());
 
 
         reminderIdCol.setCellValueFactory(data ->
@@ -282,4 +284,34 @@ public class Reminderview {
         }
     }
 
+    public void openUserSettings(ActionEvent event) {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("user-settings.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Scene scene = openSettings.getScene();
+            scene.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private String getUserUsername() {
+        try (Connection c = MySQLConnection.getConnection();
+             PreparedStatement statement = c.prepareStatement("SELECT username FROM users WHERE id = ?")) {
+
+            statement.setInt(1, HelloController.storedUserId);
+
+            ResultSet res = statement.executeQuery();
+
+            if (res.next()) {
+                return res.getString("username");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

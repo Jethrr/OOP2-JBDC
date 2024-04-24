@@ -45,6 +45,14 @@
                   <Image url="@mockup-logo.png" />
                </image>
             </ImageView>
+            <Button fx:id="openSettings" layoutX="567.0" layoutY="34.0" mnemonicParsing="false" onAction="#openUserSettings" prefHeight="25.0" prefWidth="31.0">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@setting.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
             </children>
         </AnchorPane>
     </children>

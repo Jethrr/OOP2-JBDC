@@ -21,12 +21,12 @@
                </font>
             </Label>
             <Button fx:id="btnOpenLogin" layoutX="421.0" layoutY="255.0" mnemonicParsing="false" onAction="#loginValidation" prefHeight="35.0" prefWidth="207.0" text="Login" />
-            <Button fx:id="btnOpenRegister" layoutX="553.0" layoutY="321.0" mnemonicParsing="false" onAction="#openRegister" prefHeight="25.0" prefWidth="67.0" text="Register" />
+            <Button fx:id="btnOpenRegister" layoutX="563.0" layoutY="320.0" mnemonicParsing="false" onAction="#openRegister" prefHeight="25.0" prefWidth="67.0" text="Register" />
             <Label layoutX="489.0" layoutY="74.0" text="Login">
                <font>
                   <Font name="System Bold" size="31.0" />
                </font></Label>
-            <Label layoutX="419.0" layoutY="325.0" text="Dont have an account yet?" />
+            <Label layoutX="429.0" layoutY="324.0" text="Dont have an account yet?" />
             <PasswordField fx:id="password" layoutX="418.0" layoutY="215.0" prefHeight="25.0" prefWidth="207.0" />
             <AnchorPane id="sideBar" fx:id="sidebarLogin" layoutY="-1.0" prefHeight="400.0" prefWidth="355.0" style="-fx-background-color: #433BFF;" stylesheets="@../../../css/style.css">
                <children>

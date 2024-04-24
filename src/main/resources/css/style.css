@@ -54,3 +54,13 @@
      -fx-background-color: #433BFF;
         -fx-text-fill: white;
 }
+
+#btnUpdateUser{
+ -fx-background-color: #433BFF;
+        -fx-text-fill: white;
+}
+
+#btnReturn{
+         -fx-background-color: transparent;
+
+}
