@@ -29,6 +29,11 @@ Update
 Delete
 - Can delete reminders
 
+### Atomicity
+
+Turning off auto-commit, and using batch insertion to add new users, and committing the transaction only if all insert operations are successful. If any insert operation fails, the transaction is rolled back, ensuring that either all operations succeed or none of them are applied.
+
+
 ### Login Page
 <img width="515" alt="login" src="https://github.com/Jethrr/OOP2-JBDC/assets/117164095/4ac338d9-5b69-42e5-b5e6-0e476e716562">
 
