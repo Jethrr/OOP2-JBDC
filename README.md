@@ -31,7 +31,7 @@ Delete
 ---
 ### Atomicity
 
-Turning off auto-commit, and using batch insertion to add new users, and committing the transaction only if all insert operations are successful. If any insert operation fails, the transaction is rolled back, ensuring that either all operations succeed or none of them are applied.
+- Turning off auto-commit, and using batch insertion to add new users, and committing the transaction only if all insert operations are successful. If any insert operation fails, the transaction is rolled back, ensuring that either all operations succeed or none of them are applied.
 ---
 
 ### Login Page
