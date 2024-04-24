@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.omictincrud.Reminderview">
-   <children>
-      <AnchorPane prefHeight="400.0" prefWidth="680.0">
-         <children>
-            <Label layoutX="54.0" layoutY="33.0" text="REMINDERS" textFill="RED">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tfReminder" layoutX="54.0" layoutY="80.0" onAction="#insertReminder" prefHeight="25.0" prefWidth="500.0" />
-            <Button fx:id="btnAddRen" layoutX="562.0" layoutY="80.0" mnemonicParsing="false" onAction="#insertReminder" prefHeight="25.0" prefWidth="71.0" text="ADD" />
-            <Button fx:id="btnReturnMain" layoutX="633.0" layoutY="20.0" mnemonicParsing="false" onAction="#ReturnMain" text="X" />
-            <TableView fx:id="reminderTabe" layoutX="54.0" layoutY="126.0" prefHeight="232.0" prefWidth="580.0">
-              <columns>
-                <TableColumn fx:id="reminderIdCol" prefWidth="75.0" text="#" />
-                <TableColumn fx:id="reminderCol" prefWidth="385.0000305175781" text="REMINDER" />
-                  <TableColumn fx:id="opCol" prefWidth="117.6666259765625" text="op" />
-              </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fbfbfe;" stylesheets="@../../../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.omictincrud.Reminderview">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="680.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <Label fx:id="rem" layoutX="115.0" layoutY="29.0" text="Reminders">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tfReminder" layoutX="54.0" layoutY="80.0" onAction="#insertReminder" prefHeight="28.0" prefWidth="464.0" promptText="Enter a new reminder" />
+                <Button fx:id="btnAddRen" layoutX="584.0" layoutY="80.0" mnemonicParsing="false" onAction="#insertReminder" prefHeight="28.0" prefWidth="51.0" style="-fx-background-color: #433BFF; -fx-text-fill: #FFFFFF;" text="Add" />
+                <Button fx:id="btnSignout" layoutX="633.0" layoutY="20.0" mnemonicParsing="false" onAction="#ReturnMain">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@exit.png" />
+                            </image>
+                        </ImageView>
+                    </graphic></Button>
+                <TableView fx:id="reminderTabe" layoutX="54.0" layoutY="126.0" prefHeight="232.0" prefWidth="580.0">
+                    <columns>
+                        <TableColumn fx:id="reminderIdCol" prefWidth="57.33333969116211" text="#" />
+                        <TableColumn fx:id="reminderCol" prefWidth="342.3333740234375" text="Reminder" />
+                  <TableColumn fx:id="dateCol" prefWidth="82.6666259765625" text="Due" />
+                        <TableColumn fx:id="opCol" minWidth="0.0" prefWidth="96.0" />
+                    </columns>
+                </TableView>
+            <DatePicker fx:id="dateP" layoutX="526.0" layoutY="81.0" prefHeight="25.0" prefWidth="14.0" />
+            <ImageView fitHeight="49.0" fitWidth="51.0" layoutX="54.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@mockup-logo.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>

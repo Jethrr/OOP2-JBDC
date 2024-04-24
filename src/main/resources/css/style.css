@@ -1,8 +1,56 @@
+
+
+
+
+
+#reminderTabe{
+         -fx-background-color: #FFFFFF;
+          -fx-border-radius: 7px;
+
+
+}
+
+#reminderTabe .column-header-background{
+         -fx-background-color: transparent;
+
+}
+
+#reminderTabe .column-header{
+         -fx-background-color: #433BFF;
+}
+
+#reminderTabe .column-header-background .label{
+        -fx-text-fill: #FFFFFF;
+
+}
+
+.table-row-cell{
+-fx-background-color: transparent;
+}
+
+
+
+#rem{
+-fx-text-fill: black;
+}
+
+
+#btnOpenLogin{
+    -fx-background-color: #433BFF;
+    -fx-text-fill: white;
+}
+
+#btnOpenRegister{
+    -fx-background-color: transparent;
+       -fx-text-fill: #433BFF;
+}
+
+#btnReturnLogin{
+        -fx-background-color: transparent;
+          -fx-text-fill: #433BFF;
+}
+
 #btnSubmitReg {
-    -fx-background-color: #4CAF50;
-    -fx-border-radius: 5px;
-    -fx-padding: 10px 20px;
-    -fx-text-fill: black;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
+     -fx-background-color: #433BFF;
+        -fx-text-fill: white;
 }

@@ -4,21 +4,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class Registerview {
 
     public TextField username;
-    public TextField password;
+
     public Button btnReturnLogin;
     public Button btnSubmitReg;
+    public PasswordField password;
 
     public void btnOpenLogin(ActionEvent event) {
         try {
@@ -35,6 +36,15 @@ public class Registerview {
          String user = username.getText();
          String pword = password.getText();
 
+        if (user.isEmpty() || pword.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter all fields to register.");
+            alert.showAndWait();
+            return;
+        }
+
         try (Connection c = MySQLConnection.getConnection();
              PreparedStatement statement = c.prepareStatement("INSERT INTO  users(username,password) VALUES (?,?)")) {
 
@@ -43,6 +53,13 @@ public class Registerview {
             statement.setString(2, pword);
 
             int row = statement.executeUpdate();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Registered Succesfully. You can now sign in");
+
+            Optional<ButtonType> result = alert.showAndWait();
 
 //            messagebox.setText("Register Succesfully");
 

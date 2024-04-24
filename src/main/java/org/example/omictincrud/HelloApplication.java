@@ -3,12 +3,14 @@ package org.example.omictincrud;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
 
 public class HelloApplication extends Application {
     @Override
@@ -18,7 +20,11 @@ public class HelloApplication extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginview.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 685, 400);
-        stage.setTitle("Hello!");
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/style.css")).toExternalForm());
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("mockup-logo.png")));
+
+
+        stage.setTitle("Reminder");
         stage.setScene(scene);
         stage.show();
     }

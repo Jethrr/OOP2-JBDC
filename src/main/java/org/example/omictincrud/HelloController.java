@@ -5,9 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -18,16 +16,26 @@ import java.sql.SQLException;
 public class HelloController {
 
     public TextField username;
-    public TextField password;
+  
     public Button btnOpenLogin;
     public Button btnOpenRegister;
 
     public static int storedUserId = 1;
+    public PasswordField password;
 
 
     public void loginValidation(ActionEvent event) {
         String name = username.getText();
         String pass = password.getText();
+
+        if (name.isEmpty() || pass.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter both username and password.");
+            alert.showAndWait();
+            return;
+        }
 
         boolean auth = authentication(name, pass);
 
@@ -35,22 +43,23 @@ public class HelloController {
 
             storedUserId = retrieveUserIdFromDatabase(name);
 
-            System.out.println("Current User: " + storedUserId);
+
 
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainpage.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("reminderview.fxml"));
                 Parent root = fxmlLoader.load();
                 Scene scene = btnOpenLogin.getScene();
                 scene.setRoot(root);
-
-
-
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Invalid Output");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid username or password.");
+            alert.showAndWait();
         }
 
         password.clear();
@@ -69,7 +78,7 @@ public class HelloController {
             return res.next();
         } catch (SQLException e) {
             e.printStackTrace();
-            return false; // Add a return statement here
+            return false;
         }
     }
     public static int retrieveUserIdFromDatabase(String username) {

@@ -1,32 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.omictincrud.Registerview">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="685.0" style="-fx-background-color: #433BFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.omictincrud.Registerview">
     <children>
-        <AnchorPane prefHeight="400.0" prefWidth="600.0">
+        <AnchorPane layoutX="323.0" prefHeight="400.0" prefWidth="362.0" style="-fx-background-color: #FFFFFF;">
             <children>
-                <Label layoutX="280.0" layoutY="109.0" text="Username">
+                <Label layoutX="56.0" layoutY="140.0" text="Username">
                     <font>
-                        <Font size="24.0" />
+                        <Font size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="username" layoutX="403.0" layoutY="114.0" />
-                <TextField fx:id="password" layoutX="403.0" layoutY="163.0" />
-                <Label layoutX="279.0" layoutY="157.0" text="Password">
+                <TextField fx:id="username" layoutX="56.0" layoutY="161.0" prefHeight="25.0" prefWidth="262.0" />
+                <Label layoutX="56.0" layoutY="194.0" text="Password">
                     <font>
-                        <Font size="26.0" />
+                        <Font size="15.0" />
                     </font>
                 </Label>
-                <Button fx:id="btnReturnLogin" layoutX="410.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnOpenLogin" prefHeight="25.0" prefWidth="68.0" text="Return" />
-                <Button fx:id="btnSubmitReg" layoutX="492.0" layoutY="224.0" mnemonicParsing="false" onAction="#submitReg" text="Register" />
-            <Label layoutX="440.0" layoutY="52.0" text="Register">
+                <Button fx:id="btnReturnLogin" layoutX="213.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnOpenLogin" prefHeight="25.0" prefWidth="55.0" text="Sign In" />
+                <Button fx:id="btnSubmitReg" layoutX="132.0" layoutY="250.0" mnemonicParsing="false" onAction="#submitReg" prefHeight="25.0" prefWidth="109.0" text="Register" />
+            <Label layoutX="53.0" layoutY="63.0" text="Sign Up">
                <font>
-                  <Font size="21.0" />
+                  <Font name="System Bold" size="31.0" />
                </font></Label>
+            <Label layoutX="76.0" layoutY="315.0" text="Already have an account?" />
+            <PasswordField fx:id="password" layoutX="56.0" layoutY="216.0" prefHeight="25.0" prefWidth="262.0" />
+            <Label layoutX="56.0" layoutY="109.0" text="Create an account to login" />
             </children>
         </AnchorPane>
+      <Label layoutX="62.0" layoutY="61.0" text="Create" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="98.0" text="A new account" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="218.0" fitWidth="215.0" layoutX="49.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@profileacc.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
